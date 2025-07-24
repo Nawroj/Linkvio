@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-linkvio-dev-431a0-authRole",
+      "UnauthRoleArn": "arn:aws:iam::239762172115:role/amplify-linkvio-dev-431a0-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::239762172115:role/amplify-linkvio-dev-431a0-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-linkvio-dev-431a0-deployment",
+      "UnauthRoleName": "amplify-linkvio-dev-431a0-unauthRole",
+      "StackName": "amplify-linkvio-dev-431a0",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:239762172115:stack/amplify-linkvio-dev-431a0/bde440c0-62e9-11f0-8297-0a6c9f858419",
+      "AmplifyAppId": "d3avupr04n9p3b"
+    },
+    "categories": {
+      "auth": {
+        "linkviob23faa06": {}
+      }
+    }
+  }
+}
