@@ -5,12 +5,12 @@ import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart'; // <--- NEW IMPORT for launching URLs
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'settings_page.dart';
 import 'resume_template_selection_page.dart'; // Import the resume template selection page
 
 // IMPORTANT: Define your API Base URL here (duplicate from resume_template_selection_page.dart for direct usage)
-const String API_BASE_URL = 'https://njdf4mnhdc.execute-api.ap-southeast-2.amazonaws.com/dev'; // <--- NEW CONSTANT
+final String API_BASE_URL = dotenv.env['API_BASE_URL']!; // <--- NEW CONSTANT
 
 // Data models (kept here for completeness, ideally in a separate file)
 // ... (EducationEntry, CertificateEntry, ExperienceEntry, ProjectEntry classes remain the same)

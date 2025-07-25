@@ -6,11 +6,11 @@ import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'pdf_viewer_page.dart';
 
 // IMPORTANT: Define your API Base URL here
-const String API_BASE_URL = 'https://njdf4mnhdc.execute-api.ap-southeast-2.amazonaws.com/dev';
+final String API_BASE_URL = dotenv.env['API_BASE_URL']!;
 
 // --- ResumeTemplate Model ---
 class ResumeTemplate {

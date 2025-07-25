@@ -5,14 +5,14 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../models/job_listing.dart';
 import 'profile_page.dart'; // To get access to EducationEntry, ExperienceEntry, etc.
 import 'resume_template_selection_page.dart'; // To navigate for PDF generation
 
 // IMPORTANT: Define your API Base URL here (duplicate from profile_page.dart for convenience)
-const String API_BASE_URL = 'https://njdf4mnhdc.execute-api.ap-southeast-2.amazonaws.com/dev'; // Your existing base for resume, joblist
-const String AI_CUSTOMIZE_API_URL = 'https://gbuyvo0j1k.execute-api.ap-southeast-2.amazonaws.com/dev/customize-resume'; // Make sure this is your correct AI API Gateway Invoke URL
+final String API_BASE_URL = dotenv.env['API_BASE_URL']!; // <--- ADD THIS LINE
+final String AI_CUSTOMIZE_API_URL = dotenv.env['AI_CUSTOMIZE_API_URL']!; // <--- ADD THIS LINE
 
 class AICustomizeResumePage extends StatefulWidget {
   final JobListing jobListing;

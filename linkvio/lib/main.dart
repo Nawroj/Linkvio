@@ -5,13 +5,16 @@ import 'package:http/http.dart' as http; // Added for http requests
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart'; // <--- NEW IMPORT
 
 import 'amplifyconfiguration.dart';
 import 'pages/home_page.dart';
 import 'pages/resume_builder.dart';
 import 'theme/app_theme.dart';
 
-void main() {
+void main() async { // <--- MODIFIED: main is now async
+  WidgetsFlutterBinding.ensureInitialized(); // <--- NEW: Ensure Flutter binding is initialized
+  await dotenv.load(fileName: ".env"); // <--- NEW: Load environment variables from .env
   runApp(const MyApp());
 }
 
@@ -65,7 +68,8 @@ class _MyAppState extends State<MyApp> {
       }
 
       // <--- IMPORTANT: Use your actual API Gateway Invoke URL for fetching resume
-      final apiUrl = 'https://njdf4mnhdc.execute-api.ap-southeast-2.amazonaws.com/dev/resume';
+      // final apiUrl = 'https://njdf4mnhdc.execute-api.ap-southeast-2.amazonaws.com/dev/resume'; // <--- REMOVED
+      final apiUrl = '${dotenv.env['API_BASE_URL']!}/resume'; // <--- NEW: Use dotenv for API_BASE_URL
 
       final response = await http.get(
         Uri.parse(apiUrl),
@@ -277,5 +281,4 @@ Widget build(BuildContext context) {
     ),
   );
 }
-
 }
